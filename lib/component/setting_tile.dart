@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 Widget tileSetting({
+  VoidCallback? tap,
   Color? bgColor,
   Color? iconColor,
   final text,

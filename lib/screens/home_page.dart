@@ -236,7 +236,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   // ),
                   Expanded(
                     child: GoogleMap(
-                      mapType: MapType.terrain,
+                      mapType: MapType.normal,
                       // polygons: polygon,
                       polylines: polyline,
                       initialCameraPosition: CameraPosition(

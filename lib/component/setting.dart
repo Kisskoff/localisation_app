@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:livraison_app/component/button.dart';
 import 'package:livraison_app/component/setting_tile.dart';
+import 'package:livraison_app/component/text_field.dart';
+import 'package:livraison_app/component/trait.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -9,6 +12,10 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  TextEditingController locatController = TextEditingController();
+  TextEditingController nomController = TextEditingController();
+  TextEditingController telController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,77 +73,132 @@ class _SettingsState extends State<Settings> {
             child: Column(
               children: [
                 tileSetting(
-                  text: 'Profile Setting',
+                  text: 'Profile',
                   textColor: Colors.black54,
                   bgColor: Colors.grey,
                   icon: Icons.person,
                   iconColor: Colors.white,
+                  tap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) => setting(),
+                    );
+                  },
                 ),
                 const SizedBox(
                   height: 15,
                 ),
                 tileSetting(
-                  text: 'Change password',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.lock,
-                  iconColor: Colors.white,
-                ),
+                    text: 'Settings',
+                    textColor: Colors.black54,
+                    bgColor: Colors.grey,
+                    icon: Icons.lock,
+                    iconColor: Colors.white,
+                    tap: () {}),
                 const SizedBox(
                   height: 15,
                 ),
                 tileSetting(
-                  text: 'Change role',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.refresh_sharp,
-                  iconColor: Colors.white,
-                ),
+                    text: 'Deconnexion',
+                    textColor: Colors.black54,
+                    bgColor: Colors.grey,
+                    icon: Icons.refresh_sharp,
+                    iconColor: Colors.white,
+                    tap: () {}),
                 const SizedBox(
                   height: 15,
-                ),
-                tileSetting(
-                  text: 'Dark mode',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.sunny,
-                  iconColor: Colors.white,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                tileSetting(
-                  text: 'Categories',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.category,
-                  iconColor: Colors.white,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                tileSetting(
-                  text: 'Products',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.plus_one,
-                  iconColor: Colors.white,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                tileSetting(
-                  text: 'Delivery',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.bike_scooter,
-                  iconColor: Colors.white,
                 ),
               ],
             ),
           ),
         ],
       )),
+    );
+  }
+
+  //profile
+  Widget profile() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
+      child: Container(
+        alignment: Alignment.center,
+        // height: 260,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          verticalDirection: VerticalDirection.down,
+          children: [
+            const SizedBox(
+              height: 5,
+            ),
+            traitContent(),
+            const SizedBox(
+              height: 5,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            textField(
+              title: '',
+              hint: 'Localisation',
+              controller: locatController,
+              maxlines: 1,
+              obscur: false,
+              keybord: TextInputType.text,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            textField(
+              title: '',
+              hint: 'Nom et prenoms',
+              controller: nomController,
+              maxlines: 1,
+              obscur: false,
+              keybord: TextInputType.text,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            textField(
+                title: '',
+                hint: 'Numéro de téléphone',
+                controller: telController,
+                maxlines: 1,
+                obscur: false,
+                keybord: TextInputType.number),
+            const SizedBox(
+              height: 15,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                buttonCustom(
+                  text: 'Valider',
+                  textColor: Colors.white,
+                  color: Colors.amber,
+                  tap: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // wi
+  Widget setting() {
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      color: Colors.black26,
     );
   }
 }
