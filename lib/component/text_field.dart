@@ -50,7 +50,7 @@ Widget textField({
           obscuringCharacter: '*',
           controller: controller,
           maxLines: maxlines,
-          keyboardType: keybord,
+          // keyboardType: keybord,
           decoration: InputDecoration(
               hintText: hint,
               border: InputBorder.none,
