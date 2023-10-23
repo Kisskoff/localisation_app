@@ -8,6 +8,7 @@ import 'package:livraison_app/component/slide_2.dart';
 import 'package:livraison_app/component/slide_3.dart';
 import 'package:livraison_app/component/text_field.dart';
 import 'package:livraison_app/component/trait.dart';
+import 'package:livraison_app/screens/shop_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 // ignore: must_be_immutable
@@ -46,7 +47,13 @@ class MonAccueil extends StatelessWidget {
             icon: const Icon(Icons.settings),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => const Shopping()),
+              );
+            },
             icon: const Icon(Icons.notifications),
           ),
           const SizedBox(

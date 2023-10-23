@@ -142,16 +142,16 @@ Widget searchTextField({
     children: [
       Container(
         // margin: const EdgeInsets.symmetric(vertical: 0.0),
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        // padding: const EdgeInsets.symmetric(horizontal: 5.0),
         height: 50,
         alignment: Alignment.center,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
-            // color: Colors.grey[200],
+            color: Colors.white,
             border: Border.all(
-              color: Colors.white,
-              width: 1.0,
-              style: BorderStyle.solid,
+              // color: Colors.grey[],
+              // width: 1.0,
+              style: BorderStyle.none,
             )),
         child: TextFormField(
           onEditingComplete: tap,

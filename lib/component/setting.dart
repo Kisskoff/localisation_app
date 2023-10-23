@@ -28,91 +28,93 @@ class _SettingsState extends State<Settings> {
         backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: double.infinity,
-            height: 200,
-            color: Colors.white,
-            child: Column(
-              children: [
-                const Image(image: AssetImage('assets/argent.png')),
-                const SizedBox(
-                  height: 10,
-                ),
-                ////////////////////////
-                RichText(
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Ceci est un ',
-                        style: TextStyle(
-                          color: Colors.teal,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                        ),
-                      ),
-                      TextSpan(
-                        text: 'texte riche',
-                        style: TextStyle(
-                          color: Colors.amber,
-                          fontWeight: FontWeight.normal,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              // height: 250,
+              color: Colors.white,
+              child: Column(
+                children: [
+                  const Image(
+                    image: AssetImage('assets/argent.png'),
                   ),
-                ),
-              ],
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  ////////////////////////
+                  RichText(
+                    text: const TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'Ceci est un ',
+                          style: TextStyle(
+                            color: Colors.teal,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'texte riche',
+                          style: TextStyle(
+                            color: Colors.amber,
+                            fontWeight: FontWeight.normal,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
-            child: Column(
-              children: [
-                tileSetting(
-                  text: 'Profile',
-                  textColor: Colors.black54,
-                  bgColor: Colors.grey,
-                  icon: Icons.person,
-                  iconColor: Colors.white,
-                  tap: () {
-                    showModalBottomSheet(
-                      context: context,
-                      builder: (BuildContext context) => setting(),
-                    );
-                  },
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                tileSetting(
-                    text: 'Settings',
+            const SizedBox(
+              height: 15,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
+              child: Column(
+                children: [
+                  tileSetting(
+                    text: 'Profile',
                     textColor: Colors.black54,
                     bgColor: Colors.grey,
-                    icon: Icons.lock,
+                    icon: Icons.person,
                     iconColor: Colors.white,
-                    tap: () {}),
-                const SizedBox(
-                  height: 15,
-                ),
-                tileSetting(
+                    tap: () {
+                      showModalBottomSheet(
+                        elevation: 0,
+                        useSafeArea: true,
+                        context: context,
+                        builder: (BuildContext context) => profile(),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  tileSetting(
                     text: 'Deconnexion',
                     textColor: Colors.black54,
                     bgColor: Colors.grey,
-                    icon: Icons.refresh_sharp,
+                    icon: Icons.logout,
                     iconColor: Colors.white,
-                    tap: () {}),
-                const SizedBox(
-                  height: 15,
-                ),
-              ],
+                    tap: () {},
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
-      )),
+          ],
+        ),
+      ),
     );
   }
 
@@ -122,12 +124,8 @@ class _SettingsState extends State<Settings> {
       padding: const EdgeInsets.fromLTRB(50, 10, 50, 10),
       child: Container(
         alignment: Alignment.center,
-        // height: 260,
+        height: 280,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          verticalDirection: VerticalDirection.down,
           children: [
             const SizedBox(
               height: 5,
@@ -190,15 +188,6 @@ class _SettingsState extends State<Settings> {
           ],
         ),
       ),
-    );
-  }
-
-  // wi
-  Widget setting() {
-    return Container(
-      width: double.infinity,
-      height: double.infinity,
-      color: Colors.black26,
     );
   }
 }
