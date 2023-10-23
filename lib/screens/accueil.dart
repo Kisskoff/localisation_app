@@ -92,7 +92,7 @@ class MonAccueil extends StatelessWidget {
                     child: conteneur(
                       text: 'Obtenir un livreur',
                       color: Colors.amber,
-                      textColor: Colors.blueGrey,
+                      textColor: Colors.black,
                       size: MediaQuery.of(context).size.width / 2,
                       colorFond: Colors.white,
                       imagePath: 'assets/livreur1.png',
@@ -110,9 +110,9 @@ class MonAccueil extends StatelessWidget {
                     child: conteneur(
                         text: 'Livreur immediat',
                         color: Colors.blueGrey,
-                        colorFond: Colors.white54,
+                        colorFond: Colors.white,
                         size: MediaQuery.of(context).size.width / 2,
-                        textColor: Colors.black45,
+                        textColor: Colors.black,
                         imagePath: 'assets/livreur.png',
                         sizeText: 14,
                         colorSh: Colors.black,
@@ -128,9 +128,9 @@ class MonAccueil extends StatelessWidget {
                   Expanded(
                     child: conteneur(
                         text: 'Tarification',
-                        color: Colors.white,
-                        colorFond: Colors.black87,
-                        textColor: Colors.white,
+                        color: Colors.black,
+                        colorFond: Colors.white,
+                        textColor: Colors.black,
                         size: MediaQuery.of(context).size.width / 2,
                         imagePath: 'assets/money.png',
                         sizeText: 14,
@@ -142,7 +142,65 @@ class MonAccueil extends StatelessWidget {
                                 builder: (context) => const Settings()),
                           );
                         }),
-                  )
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Expanded(
+                    child: conteneur(
+                        text: 'Tarification',
+                        color: Colors.black,
+                        colorFond: Colors.white,
+                        textColor: Colors.black,
+                        size: MediaQuery.of(context).size.width / 2,
+                        imagePath: 'assets/money.png',
+                        sizeText: 14,
+                        colorSh: Colors.black,
+                        tap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Settings()),
+                          );
+                        }),
+                  ),
+                  Expanded(
+                    child: conteneur(
+                        text: 'Tarification',
+                        color: Colors.black,
+                        colorFond: Colors.white,
+                        textColor: Colors.black,
+                        size: MediaQuery.of(context).size.width / 2,
+                        imagePath: 'assets/money.png',
+                        sizeText: 14,
+                        colorSh: Colors.black,
+                        tap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Settings()),
+                          );
+                        }),
+                  ),
+                  Expanded(
+                    child: conteneur(
+                        text: 'Tarification',
+                        color: Colors.black,
+                        colorFond: Colors.white,
+                        textColor: Colors.black,
+                        size: MediaQuery.of(context).size.width / 2,
+                        imagePath: 'assets/money.png',
+                        sizeText: 14,
+                        colorSh: Colors.black,
+                        tap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Settings()),
+                          );
+                        }),
+                  ),
                 ],
               ),
               // //autre
@@ -220,17 +278,18 @@ class MonAccueil extends StatelessWidget {
               controller: qtrController,
               maxlines: 1,
               obscur: false,
+              keybord: TextInputType.text,
             ),
             const SizedBox(
               height: 8,
             ),
             textField(
-              title: '',
-              hint: 'Numéro de téléphone',
-              controller: numController,
-              maxlines: 1,
-              obscur: false,
-            ),
+                title: '',
+                hint: 'Numéro de téléphone',
+                controller: numController,
+                maxlines: 1,
+                obscur: false,
+                keybord: TextInputType.number),
             const SizedBox(
               height: 15,
             ),
@@ -282,22 +341,22 @@ class MonAccueil extends StatelessWidget {
               height: 8,
             ),
             textField(
-              title: '',
-              hint: 'Quartier',
-              controller: qtrController,
-              maxlines: 1,
-              obscur: false,
-            ),
+                title: '',
+                hint: 'Quartier',
+                controller: qtrController,
+                maxlines: 1,
+                obscur: false,
+                keybord: TextInputType.text),
             const SizedBox(
               height: 8,
             ),
             textField(
-              title: '',
-              hint: 'Numéro de téléphone',
-              controller: numController,
-              maxlines: 1,
-              obscur: false,
-            ),
+                title: '',
+                hint: 'Numéro de téléphone',
+                controller: numController,
+                maxlines: 1,
+                obscur: false,
+                keybord: TextInputType.number),
             const SizedBox(
               height: 15,
             ),

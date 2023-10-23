@@ -26,6 +26,7 @@ Widget textField({
   TextEditingController? controller,
   int? maxlines = 1,
   bool obscur = false,
+  final keybord,
   // int? length = 4,
 }) {
   return Column(
@@ -49,7 +50,7 @@ Widget textField({
           obscuringCharacter: '*',
           controller: controller,
           maxLines: maxlines,
-          keyboardType: TextInputType.number,
+          keyboardType: keybord,
           decoration: InputDecoration(
               hintText: hint,
               border: InputBorder.none,

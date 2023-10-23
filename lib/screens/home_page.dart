@@ -28,8 +28,8 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController numberController = TextEditingController();
   TextEditingController dateController = TextEditingController();
 //lat
-  late double lat = 5.3913624;
-  double long = -3.9980584;
+  late double lat = 5.406825241686419; //5.3913624;,
+  double long = -3.9579632445524813; //-3.9980584;
   late String lati;
   late String longi;
 
@@ -37,12 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
   // late Map<String, Marker> _markers;
   // Set<Marker> markers = Set<Marker>();
   Set<Marker> markers = <Marker>{};
-  Set<Polygon> polygon = <Polygon>{};
+  // Set<Polygon> polygon = <Polygon>{};
   Set<Polyline> polyline = <Polyline>{};
   //
-  List<LatLng> polygonLatlng = <LatLng>[];
+  // List<LatLng> polygonLatlng = <LatLng>[];
 
-  int _polygonCounter = 1;
+  // int _polygonCounter = 1;
   // int _polylineCounter = 1;
 
   // date time
@@ -124,20 +124,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  // polygon
-  void _setPolygon() {
-    final String polygonIdval = 'polygon_$_polygonCounter';
-    _polygonCounter++;
+  // // polygon
+  // void _setPolygon() {
+  //   final String polygonIdval = 'polygon_$_polygonCounter';
+  //   _polygonCounter++;
 
-    polygon.add(
-      Polygon(
-        polygonId: PolygonId(polygonIdval),
-        points: polygonLatlng,
-        strokeWidth: 2,
-        fillColor: Colors.black,
-      ),
-    );
-  }
+  //   polygon.add(
+  //     Polygon(
+  //       polygonId: PolygonId(polygonIdval),
+  //       points: polygonLatlng,
+  //       strokeWidth: 2,
+  //       fillColor: Colors.black,
+  //     ),
+  //   );
+  // }
 
   /////
   // // polyline
@@ -236,8 +236,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   // ),
                   Expanded(
                     child: GoogleMap(
-                      mapType: MapType.normal,
-                      polygons: polygon,
+                      mapType: MapType.terrain,
+                      // polygons: polygon,
                       polylines: polyline,
                       initialCameraPosition: CameraPosition(
                         // bearing: 192.833,
@@ -259,6 +259,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Marker(
                           icon: BitmapDescriptor.defaultMarkerWithHue(
                               BitmapDescriptor.hueCyan),
+                          // icon: BitmapDescriptor.fromAssetImage(const ImageConfiguration(), "assets/emplacement.gif"),
                           markerId: const MarkerId("source"),
                           position: LatLng(lat, long),
                           infoWindow: const InfoWindow(
@@ -271,8 +272,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       },
                       onTap: (point) {
                         setState(() {
-                          polygonLatlng.add(point);
-                          _setPolygon();
+                          // polygonLatlng.add(point);
+                          // _setPolygon();
                         });
                       },
                     ),
@@ -309,6 +310,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 //
                                 lat = double.parse(lati);
                                 long = double.parse(longi);
+                              });
+                              setState(() {
+                                _setMarker(
+                                  LatLng(lat, long),
+                                );
                               });
 
                               debugPrint('MSS : $lat $long');
@@ -379,107 +385,109 @@ class _MyHomePageState extends State<MyHomePage> {
     final hours = datetime.hour.toString().padLeft(2, '0');
     final mins = datetime.minute.toString().padLeft(2, '0');
 
-    return Container(
-      width: double.infinity,
-      height: 330,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(50, 15, 50, 5),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            traitContent(),
-            const Expanded(
-              child: Text(
-                'Position actuelle : cocody 2 plateaux 7ieme tranche rue l 33 ',
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w300,
+    return SingleChildScrollView(
+      child: Container(
+        width: double.infinity,
+        height: 330,
+        decoration: const BoxDecoration(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(50, 15, 50, 5),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              traitContent(),
+              const Expanded(
+                child: Text(
+                  'Position actuelle : cocody 2 plateaux 7ieme tranche rue l 33 ',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
-            ),
-            // Nombre
-            Expanded(
-              child: textField(
-                title: '',
-                hint: 'Nombre de colis',
-                controller: nbController,
-                maxlines: 1,
-                // icon: Icons.abc,
-                obscur: false,
+              // Nombre
+              Expanded(
+                child: textField(
+                  title: '',
+                  hint: 'Nombre de colis',
+                  controller: nbController,
+                  maxlines: 1,
+                  // icon: Icons.abc,
+                  obscur: false,
+                ),
               ),
-            ),
-            Expanded(
-              child: textField(
-                title: '',
-                hint: 'Numéro de telephone',
-                controller: numberController,
-                maxlines: 1,
-                // icon: Icons.abc,
-                obscur: false,
+              Expanded(
+                child: textField(
+                  title: '',
+                  hint: 'Numéro de telephone',
+                  controller: numberController,
+                  maxlines: 1,
+                  // icon: Icons.abc,
+                  obscur: false,
+                ),
               ),
-            ),
-            Expanded(
-              child: dateField(
-                title:
-                    '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins',
-                hint:
-                    '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins',
-                controller: dateController,
-                maxlines: 1,
-                icon: Icons.abc,
-                tap: () async {
-                  final date = await pickDateTime();
-                  debugPrint('$datetime');
-                  if (date == null) return; // cancel
+              Expanded(
+                child: dateField(
+                  title:
+                      '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins',
+                  hint:
+                      '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins',
+                  controller: dateController,
+                  maxlines: 1,
+                  icon: Icons.abc,
+                  tap: () async {
+                    final date = await pickDateTime();
+                    debugPrint('$datetime');
+                    if (date == null) return; // cancel
 
-                  final newDateTime = DateTime(
-                    date.year,
-                    date.month,
-                    date.day,
-                    date.hour,
-                    date.minute,
-                  );
-
-                  setState(() {
-                    datetime = newDateTime;
-                  });
-                },
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                buttonCustom(
-                  tap: () {
-                    var nb = nbController.text;
-                    var num = numberController.text;
-                    var date =
-                        '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins';
-                    debugPrint(
-                        'NOMBRE DE COLIS : $nb => NUMERO DE TELEPHONE : $num => DATE ET HEURE : +$date');
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MonAccueil()),
+                    final newDateTime = DateTime(
+                      date.year,
+                      date.month,
+                      date.day,
+                      date.hour,
+                      date.minute,
                     );
-                    // Navigator.of(context).pop();
+
+                    setState(() {
+                      datetime = newDateTime;
+                    });
                   },
-                  text: 'Je confirme',
-                  textColor: Colors.white,
-                  color: Colors.amber,
-                )
-              ],
-            )
-          ],
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  buttonCustom(
+                    tap: () {
+                      var nb = nbController.text;
+                      var num = numberController.text;
+                      var date =
+                          '${datetime.day}/${datetime.month}/${datetime.year} à $hours:$mins';
+                      debugPrint(
+                          'NOMBRE DE COLIS : $nb => NUMERO DE TELEPHONE : $num => DATE ET HEURE : +$date');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => MonAccueil()),
+                      );
+                      // Navigator.of(context).pop();
+                    },
+                    text: 'Je confirme',
+                    textColor: Colors.white,
+                    color: Colors.amber,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
