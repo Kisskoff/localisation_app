@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:livraison_app/screens/accueil.dart';
-import 'package:livraison_app/screens/home_page.dart';
+// import 'package:livraison_app/screens/home_page.dart';
+import 'package:livraison_app/screens/shop_page.dart';
 // import 'package:livraison_app/splashscreen.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.amberAccent,
         useMaterial3: true,
       ),
-      home: const MyHomePage(),
+      home: const Shopping(),
     );
   }
 }
