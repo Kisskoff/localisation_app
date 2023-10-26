@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:livraison_app/component/containeur.dart';
 import 'package:livraison_app/component/shop_component.dart';
 import 'package:livraison_app/component/text_field.dart';
+import 'package:livraison_app/screens/shop_details.dart';
 
 class Shopping extends StatefulWidget {
   const Shopping({super.key});
@@ -121,7 +122,26 @@ class _ShoppingState extends State<Shopping> {
           "dLight Grey Casual Collar Knitted Fabric Plain Track Shorts Embellished Medium Stretch Women Clothing",
       'prix': "2000 F",
       "imgPath":
-          "https://i.pinimg.com/564x/66/df/29/66df298e961010d0e0fdd941cafedc0e.jpg"
+          "https://i.pinimg.com/236x/27/52/40/275240707fbb7fc720217891726ca9d0.jpg"
+    },
+    {
+      "id": 13,
+      "name":
+          "Girls Women High Waisted Plain Pleated Skirt Skater Tennis School Uniforms A-line Mini Skirt Lining Shorts",
+      "desc":
+          "100% Polyester Zipper closure Hand Wash Only Material: polyester(high quality, no stretchy) Pleated style, skater design, mini length, uniform/ school skirt solid",
+      'prix': "2000 F",
+      "imgPath":
+          "https://i.pinimg.com/564x/49/e6/8a/49e68a96bd1896414139844702842cf0.jpg"
+    },
+    {
+      "id": 14,
+      "name": "All Star by kisskoff",
+      "desc":
+          "100% Polyester Zipper closure Hand Wash Only Material: polyester(high quality, no stretchy) Pleated style, skater design, mini length, uniform/ school skirt solid",
+      'prix': "2000 F",
+      "imgPath":
+          "https://i.pinimg.com/236x/98/b4/2a/98b42a58f643fd54e3d4699b2860202a.jpg"
     },
   ];
 
@@ -253,61 +273,55 @@ class _ShoppingState extends State<Shopping> {
                   ],
                 ),
               ),
-              // title
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Popualire'.toUpperCase(),
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.normal),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(Icons.filter_list),
-                  ),
-                ],
-              ),
+              // // title
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       'Popualire'.toUpperCase(),
+              //       style: const TextStyle(
+              //           fontSize: 16, fontWeight: FontWeight.normal),
+              //     ),
+              //     IconButton(
+              //       onPressed: () {},
+              //       icon: const Icon(Icons.filter_list),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(
                 height: 10,
               ),
               // popular
-              shopComponent(
-                // imagePath: 'assets/skirt.png',
-                colorFond: Colors.grey[300],
-                color: Colors.black12,
-                text: 'Shoes',
-                textColor: Colors.black,
-                size: 200,
-                textDesc: 'vide',
-                prix: '3000 F',
-                imgfond:
-                    'https://i.pinimg.com/236x/7b/9c/16/7b9c16c163f675a5fbdaf2b6a7e6c63e.jpg',
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              // // listview
+              // // // listview
               // Padding(
               //   padding: const EdgeInsets.all(20),
               //   child: ListView.builder(
-              //       itemCount: myproducts.length,
-              //       itemBuilder: (_, index) {
-              //         return Container(
-              //           width: double.infinity,
-              //           height: 200,
-              //           decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(20),
-              //               color: Colors.white38),
-              //           child: Column(
-              //             children: [
-              //               Image.asset(myproducts.imagePath),
-              //               Text(myproducts.name),
-              //             ],
-              //           ),
-              //         );
-              //       }),
-              // )
+              //     itemCount: gridMap.length,
+              //     itemBuilder: (_, index) {
+              //       return Container(
+              //         width: double.infinity,
+              //         height: 200,
+              //         color: Colors.amber,
+              //       );
+              //       // return shopComponent(
+              //       //   colorFond: Colors.grey[300],
+              //       //   color: Colors.black12,
+              //       //   text: 'Shoes',
+              //       //   textColor: Colors.black,
+              //       //   size: 200,
+              //       //   textDesc: 'vide vide vide',
+              //       //   prix: '3000 F',
+              //       //   imgfond:
+              //       //       'https://i.pinimg.com/236x/7b/9c/16/7b9c16c163f675a5fbdaf2b6a7e6c63e.jpg',
+              //       // );
+              //     },
+              //   ),
+              // ),
+
+              const SizedBox(
+                height: 15,
+              ),
+
               // gridview
               // title
               Row(
@@ -354,6 +368,14 @@ class _ShoppingState extends State<Shopping> {
                         textDesc: "${gridMap.elementAt(index)['desc']}",
                         prix: '${gridMap.elementAt(index)['prix']}',
                         imgfond: '${gridMap.elementAt(index)['imgPath']}',
+                        tap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    const ShoppingDetails()),
+                          );
+                        },
                       );
                     }),
               ),

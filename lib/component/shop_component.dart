@@ -41,38 +41,24 @@ Widget shopComponent({
             child: Stack(
               alignment: Alignment.topRight,
               children: [
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(8),
-
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    // border: Border.all(
-                    //     color: Colors.white,
-                    //     width: 2.0,
-                    //     style: BorderStyle.solid),
-                    color: Colors.white,
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(imgfond),
+                GestureDetector(
+                  onTap: tap,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(8),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(imgfond),
+                      ),
                     ),
-                    // image: DecorationImage(
-                    //   image: true
-                    //       ? const NetworkImage(
-                    //           'https://cdn-icons-png.flaticon.com/128/5082/5082749.png')
-                    //       : Image.asset(imagePath) as ImageProvider,
-                    // ),
                   ),
-                  // color: Colors.white,
-                  // child: Image.asset(
-                  //   imagePath!,
-                  //   width: double.infinity,
-                  //   height: 100,
-                  // ),
                 ),
                 Positioned(
-                  top: 0,
-                  right: 0,
+                  top: 2,
+                  right: 2,
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
@@ -80,7 +66,7 @@ Widget shopComponent({
                       size: 30,
                       shadows: [
                         Shadow(
-                          color: Colors.teal, // Couleur de l'ombre
+                          color: Colors.white, // Couleur de l'ombre
                           blurRadius: 0.2, // Rayon de flou
                           // spreadRadius: 1, // Étalement de l'ombre
                           offset: Offset(0,
@@ -88,7 +74,7 @@ Widget shopComponent({
                         ),
                       ],
                     ),
-                    color: Colors.amber,
+                    color: Colors.redAccent,
                   ),
                 ),
               ],

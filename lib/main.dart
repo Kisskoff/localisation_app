@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // title: 'L I V R A I S O N',
       theme: ThemeData(
-        primaryColor: Colors.amberAccent,
+        // primaryColor: Colors.amberAccent,
+        primarySwatch: Colors.amber,
         useMaterial3: true,
       ),
       home: const Shopping(),
